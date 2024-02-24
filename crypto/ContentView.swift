@@ -16,9 +16,21 @@ struct BitcoinBall: View {
         RealityView { content in
             if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
                 content.add(scene)
+                spin(entity: scene)
+
             }
 
         }
+    }
+ 
+    func spin(entity: Entity) {
+        // Create an infinite spinning animation
+        let spin = simd_quatf(angle: .pi, axis: [0, 1, 0])
+        let rotation = entity.transform.rotation
+        
+        // Apply the spinning animation
+        entity.move(by: .rotation(spin), relativeTo: nil, duration: 3, timingFunction: .linear)
+        entity.transform.rotation = rotation
     }
 }
 
