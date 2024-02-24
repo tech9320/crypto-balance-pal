@@ -12,14 +12,15 @@ import RealityKitContent
 struct BitcoinBall: View {
 
 
-    var body: some View {
+     var body: some View {
         RealityView { content in
-            if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
+            if let scene = try? await Entity.load(named: "Scene") {
+                // Add the loaded scene to the content
                 content.add(scene)
+                
+                // Start spinning the entity
                 spin(entity: scene)
-
             }
-
         }
     }
  
