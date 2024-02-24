@@ -1,6 +1,6 @@
 //
-//  crypto_vision_proApp.swift
-//  crypto-vision-pro
+//  cryptoApp.swift
+//  crypto
 //
 //  Created by Daria Mirkina on 2/24/24.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct crypto_vision_proApp: App {
+struct cryptoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -16,6 +16,6 @@ struct crypto_vision_proApp: App {
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()
-        }.immersionStyle(selection: .constant(.full), in: .full)
+        }
     }
 }

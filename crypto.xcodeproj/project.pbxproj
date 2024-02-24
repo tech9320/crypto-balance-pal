@@ -7,82 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EEE8119D2B8A3CAB00A7B13F /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = EEE8119C2B8A3CAB00A7B13F /* RealityKitContent */; };
-		EEE8119F2B8A3CAB00A7B13F /* crypto_vision_proApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8119E2B8A3CAB00A7B13F /* crypto_vision_proApp.swift */; };
-		EEE811A12B8A3CAB00A7B13F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE811A02B8A3CAB00A7B13F /* ContentView.swift */; };
-		EEE811A32B8A3CAB00A7B13F /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE811A22B8A3CAB00A7B13F /* ImmersiveView.swift */; };
-		EEE811A52B8A3CAB00A7B13F /* ImageBasedLighting.skybox in Resources */ = {isa = PBXBuildFile; fileRef = EEE811A42B8A3CAB00A7B13F /* ImageBasedLighting.skybox */; };
-		EEE811A72B8A3CAE00A7B13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE811A62B8A3CAE00A7B13F /* Assets.xcassets */; };
-		EEE811AA2B8A3CAE00A7B13F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE811A92B8A3CAE00A7B13F /* Preview Assets.xcassets */; };
+		EEE811C02B8A4ED000A7B13F /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = EEE811BF2B8A4ED000A7B13F /* RealityKitContent */; };
+		EEE811C22B8A4ED000A7B13F /* cryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE811C12B8A4ED000A7B13F /* cryptoApp.swift */; };
+		EEE811C42B8A4ED000A7B13F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE811C32B8A4ED000A7B13F /* ContentView.swift */; };
+		EEE811C62B8A4ED000A7B13F /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE811C52B8A4ED000A7B13F /* ImmersiveView.swift */; };
+		EEE811C82B8A4ED300A7B13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE811C72B8A4ED300A7B13F /* Assets.xcassets */; };
+		EEE811CB2B8A4ED300A7B13F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE811CA2B8A4ED300A7B13F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EEE811972B8A3CAB00A7B13F /* crypto-vision-pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "crypto-vision-pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEE8119B2B8A3CAB00A7B13F /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
-		EEE8119E2B8A3CAB00A7B13F /* crypto_vision_proApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crypto_vision_proApp.swift; sourceTree = "<group>"; };
-		EEE811A02B8A3CAB00A7B13F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		EEE811A22B8A3CAB00A7B13F /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
-		EEE811A42B8A3CAB00A7B13F /* ImageBasedLighting.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = ImageBasedLighting.skybox; sourceTree = "<group>"; };
-		EEE811A62B8A3CAE00A7B13F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EEE811A92B8A3CAE00A7B13F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EEE811AB2B8A3CAE00A7B13F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEE811BA2B8A4ED000A7B13F /* crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE811BE2B8A4ED000A7B13F /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		EEE811C12B8A4ED000A7B13F /* cryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cryptoApp.swift; sourceTree = "<group>"; };
+		EEE811C32B8A4ED000A7B13F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EEE811C52B8A4ED000A7B13F /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		EEE811C72B8A4ED300A7B13F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEE811CA2B8A4ED300A7B13F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EEE811CC2B8A4ED300A7B13F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EEE811942B8A3CAB00A7B13F /* Frameworks */ = {
+		EEE811B72B8A4ED000A7B13F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE8119D2B8A3CAB00A7B13F /* RealityKitContent in Frameworks */,
+				EEE811C02B8A4ED000A7B13F /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EEE8118E2B8A3CAB00A7B13F = {
+		EEE811B12B8A4ED000A7B13F = {
 			isa = PBXGroup;
 			children = (
-				EEE811992B8A3CAB00A7B13F /* crypto-vision-pro */,
-				EEE8119A2B8A3CAB00A7B13F /* Packages */,
-				EEE811982B8A3CAB00A7B13F /* Products */,
+				EEE811BC2B8A4ED000A7B13F /* crypto */,
+				EEE811BD2B8A4ED000A7B13F /* Packages */,
+				EEE811BB2B8A4ED000A7B13F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EEE811982B8A3CAB00A7B13F /* Products */ = {
+		EEE811BB2B8A4ED000A7B13F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EEE811972B8A3CAB00A7B13F /* crypto-vision-pro.app */,
+				EEE811BA2B8A4ED000A7B13F /* crypto.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EEE811992B8A3CAB00A7B13F /* crypto-vision-pro */ = {
+		EEE811BC2B8A4ED000A7B13F /* crypto */ = {
 			isa = PBXGroup;
 			children = (
-				EEE8119E2B8A3CAB00A7B13F /* crypto_vision_proApp.swift */,
-				EEE811A02B8A3CAB00A7B13F /* ContentView.swift */,
-				EEE811A22B8A3CAB00A7B13F /* ImmersiveView.swift */,
-				EEE811A42B8A3CAB00A7B13F /* ImageBasedLighting.skybox */,
-				EEE811A62B8A3CAE00A7B13F /* Assets.xcassets */,
-				EEE811AB2B8A3CAE00A7B13F /* Info.plist */,
-				EEE811A82B8A3CAE00A7B13F /* Preview Content */,
+				EEE811C12B8A4ED000A7B13F /* cryptoApp.swift */,
+				EEE811C32B8A4ED000A7B13F /* ContentView.swift */,
+				EEE811C52B8A4ED000A7B13F /* ImmersiveView.swift */,
+				EEE811C72B8A4ED300A7B13F /* Assets.xcassets */,
+				EEE811CC2B8A4ED300A7B13F /* Info.plist */,
+				EEE811C92B8A4ED300A7B13F /* Preview Content */,
 			);
-			path = "crypto-vision-pro";
+			path = crypto;
 			sourceTree = "<group>";
 		};
-		EEE8119A2B8A3CAB00A7B13F /* Packages */ = {
+		EEE811BD2B8A4ED000A7B13F /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				EEE8119B2B8A3CAB00A7B13F /* RealityKitContent */,
+				EEE811BE2B8A4ED000A7B13F /* RealityKitContent */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
 		};
-		EEE811A82B8A3CAE00A7B13F /* Preview Content */ = {
+		EEE811C92B8A4ED300A7B13F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				EEE811A92B8A3CAE00A7B13F /* Preview Assets.xcassets */,
+				EEE811CA2B8A4ED300A7B13F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -90,42 +87,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EEE811962B8A3CAB00A7B13F /* crypto-vision-pro */ = {
+		EEE811B92B8A4ED000A7B13F /* crypto */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EEE811AE2B8A3CAE00A7B13F /* Build configuration list for PBXNativeTarget "crypto-vision-pro" */;
+			buildConfigurationList = EEE811CF2B8A4ED300A7B13F /* Build configuration list for PBXNativeTarget "crypto" */;
 			buildPhases = (
-				EEE811932B8A3CAB00A7B13F /* Sources */,
-				EEE811942B8A3CAB00A7B13F /* Frameworks */,
-				EEE811952B8A3CAB00A7B13F /* Resources */,
+				EEE811B62B8A4ED000A7B13F /* Sources */,
+				EEE811B72B8A4ED000A7B13F /* Frameworks */,
+				EEE811B82B8A4ED000A7B13F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "crypto-vision-pro";
+			name = crypto;
 			packageProductDependencies = (
-				EEE8119C2B8A3CAB00A7B13F /* RealityKitContent */,
+				EEE811BF2B8A4ED000A7B13F /* RealityKitContent */,
 			);
-			productName = "crypto-vision-pro";
-			productReference = EEE811972B8A3CAB00A7B13F /* crypto-vision-pro.app */;
+			productName = crypto;
+			productReference = EEE811BA2B8A4ED000A7B13F /* crypto.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EEE8118F2B8A3CAB00A7B13F /* Project object */ = {
+		EEE811B22B8A4ED000A7B13F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					EEE811962B8A3CAB00A7B13F = {
+					EEE811B92B8A4ED000A7B13F = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = EEE811922B8A3CAB00A7B13F /* Build configuration list for PBXProject "crypto-vision-pro" */;
+			buildConfigurationList = EEE811B52B8A4ED000A7B13F /* Build configuration list for PBXProject "crypto" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -133,44 +130,43 @@
 				en,
 				Base,
 			);
-			mainGroup = EEE8118E2B8A3CAB00A7B13F;
-			productRefGroup = EEE811982B8A3CAB00A7B13F /* Products */;
+			mainGroup = EEE811B12B8A4ED000A7B13F;
+			productRefGroup = EEE811BB2B8A4ED000A7B13F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EEE811962B8A3CAB00A7B13F /* crypto-vision-pro */,
+				EEE811B92B8A4ED000A7B13F /* crypto */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EEE811952B8A3CAB00A7B13F /* Resources */ = {
+		EEE811B82B8A4ED000A7B13F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE811A72B8A3CAE00A7B13F /* Assets.xcassets in Resources */,
-				EEE811AA2B8A3CAE00A7B13F /* Preview Assets.xcassets in Resources */,
-				EEE811A52B8A3CAB00A7B13F /* ImageBasedLighting.skybox in Resources */,
+				EEE811CB2B8A4ED300A7B13F /* Preview Assets.xcassets in Resources */,
+				EEE811C82B8A4ED300A7B13F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EEE811932B8A3CAB00A7B13F /* Sources */ = {
+		EEE811B62B8A4ED000A7B13F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE811A12B8A3CAB00A7B13F /* ContentView.swift in Sources */,
-				EEE8119F2B8A3CAB00A7B13F /* crypto_vision_proApp.swift in Sources */,
-				EEE811A32B8A3CAB00A7B13F /* ImmersiveView.swift in Sources */,
+				EEE811C42B8A4ED000A7B13F /* ContentView.swift in Sources */,
+				EEE811C22B8A4ED000A7B13F /* cryptoApp.swift in Sources */,
+				EEE811C62B8A4ED000A7B13F /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		EEE811AC2B8A3CAE00A7B13F /* Debug */ = {
+		EEE811CD2B8A4ED300A7B13F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -233,7 +229,7 @@
 			};
 			name = Debug;
 		};
-		EEE811AD2B8A3CAE00A7B13F /* Release */ = {
+		EEE811CE2B8A4ED300A7B13F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -289,14 +285,14 @@
 			};
 			name = Release;
 		};
-		EEE811AF2B8A3CAE00A7B13F /* Debug */ = {
+		EEE811D02B8A4ED300A7B13F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"crypto-vision-pro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"crypto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -305,7 +301,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tech9320.crypto-vision-pro";
+				PRODUCT_BUNDLE_IDENTIFIER = tech9320.crypto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -314,14 +310,14 @@
 			};
 			name = Debug;
 		};
-		EEE811B02B8A3CAE00A7B13F /* Release */ = {
+		EEE811D12B8A4ED300A7B13F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"crypto-vision-pro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"crypto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -330,7 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "tech9320.crypto-vision-pro";
+				PRODUCT_BUNDLE_IDENTIFIER = tech9320.crypto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -342,20 +338,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EEE811922B8A3CAB00A7B13F /* Build configuration list for PBXProject "crypto-vision-pro" */ = {
+		EEE811B52B8A4ED000A7B13F /* Build configuration list for PBXProject "crypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EEE811AC2B8A3CAE00A7B13F /* Debug */,
-				EEE811AD2B8A3CAE00A7B13F /* Release */,
+				EEE811CD2B8A4ED300A7B13F /* Debug */,
+				EEE811CE2B8A4ED300A7B13F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EEE811AE2B8A3CAE00A7B13F /* Build configuration list for PBXNativeTarget "crypto-vision-pro" */ = {
+		EEE811CF2B8A4ED300A7B13F /* Build configuration list for PBXNativeTarget "crypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EEE811AF2B8A3CAE00A7B13F /* Debug */,
-				EEE811B02B8A3CAE00A7B13F /* Release */,
+				EEE811D02B8A4ED300A7B13F /* Debug */,
+				EEE811D12B8A4ED300A7B13F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -363,11 +359,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EEE8119C2B8A3CAB00A7B13F /* RealityKitContent */ = {
+		EEE811BF2B8A4ED000A7B13F /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = EEE8118F2B8A3CAB00A7B13F /* Project object */;
+	rootObject = EEE811B22B8A4ED000A7B13F /* Project object */;
 }

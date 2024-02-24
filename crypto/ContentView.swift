@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  crypto-vision-pro
+//  crypto
 //
-//  Created by Daria Mirkina on 2/24/24.
+//  Created by Tech9320 on 2/24/24.
 //
 
 import SwiftUI
@@ -22,7 +22,7 @@ struct ContentView: View {
             Model3D(named: "Scene", bundle: realityKitContentBundle)
                 .padding(.bottom, 50)
 
-            Text("Hello, world!")
+            Text("Hello, tech9320!")
 
             Toggle("Show Immersive Space", isOn: $showImmersiveSpace)
                 .toggleStyle(.button)
