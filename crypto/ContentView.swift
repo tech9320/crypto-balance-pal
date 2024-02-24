@@ -9,6 +9,23 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
+struct BitcoinBall: View {
+
+
+    var body: some View {
+        RealityView { content in
+            do {
+                // Nece da se ucita
+                let model = try await ModelEntity(named: "Scene")
+                   content.add(model)
+            } catch {
+                print("Error")
+            }
+
+        }
+    }
+}
+
 struct ContentView: View {
 
     @State private var showImmersiveSpace = false
@@ -24,6 +41,7 @@ struct ContentView: View {
 
             Text("Hello, tech9320!")
 
+            // I dalje mi je nejasno sta ce nam ovo tacno
             Toggle("Show Immersive Space", isOn: $showImmersiveSpace)
                 .toggleStyle(.button)
                 .padding(.top, 50)
@@ -51,5 +69,5 @@ struct ContentView: View {
 }
 
 #Preview(windowStyle: .automatic) {
-    ContentView()
+    BitcoinBall()
 }
