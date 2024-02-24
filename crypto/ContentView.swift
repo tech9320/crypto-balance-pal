@@ -14,12 +14,8 @@ struct BitcoinBall: View {
 
     var body: some View {
         RealityView { content in
-            do {
-                // Nece da se ucita
-                let model = try await ModelEntity(named: "Scene")
-                   content.add(model)
-            } catch {
-                print("Error")
+            if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
+                content.add(scene)
             }
 
         }
