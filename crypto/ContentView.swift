@@ -11,6 +11,14 @@ import RealityKitContent
 
 struct BitcoinBall: View {
 
+    
+@IBAction func rotateView(sender: UIButton) {
+    UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: { () -> Void in
+        self.spinningView.transform = self.spinningView.transform.rotated(by: .pi / 2)
+    }) { (finished) -> Void in
+        self.rotateView(sender: sender)
+    }
+}
 
      var body: some View {
         RealityView { content in
@@ -19,20 +27,11 @@ struct BitcoinBall: View {
                 content.add(scene)
                 
                 // Start spinning the entity
-                spin(entity: scene)
+                rotateView(entity: scene)
             }
         }
     }
  
-    func spin(entity: Entity) {
-        // Create an infinite spinning animation
-        let spin = simd_quatf(angle: .pi, axis: [0, 1, 0])
-        let rotation = entity.transform.rotation
-        
-        // Apply the spinning animation
-        entity.move(by: .rotation(spin), relativeTo: nil, duration: 3, timingFunction: .linear)
-        entity.transform.rotation = rotation
-    }
 }
 
 struct ContentView: View {
