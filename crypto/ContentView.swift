@@ -33,11 +33,20 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Model3D(named: "Scene", bundle: realityKitContentBundle)
+            .rotationEffect(Angle(degrees: rotationAngle))
+            .padding(.bottom, 50)
+            .onAppear {
+                let timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { _ in
+                    // Update the rotation angle
+                    rotationAngle += 1.0
+                }
+                // Invalidate the timer when the view disappears
+                RunLoop.current.add(timer, forMode: .common)
+            }
                 .padding(.bottom, 50)
 
             Text("Hello, tech9320!")
 
-            // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
                  .toggleStyle(.button)
                 .padding(.top, 50)
