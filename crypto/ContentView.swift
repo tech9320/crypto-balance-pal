@@ -37,7 +37,7 @@ struct ContentView: View {
 
             Text("Hello, tech9320!")
 
-            // I dalje mi je nejasno sta ce nam ovo tacno
+            // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
                  .toggleStyle(.button)
                 .padding(.top, 50)
