@@ -38,26 +38,17 @@ struct ContentView: View {
             Text("Hello, tech9320!")
 
             // I dalje mi je nejasno sta ce nam ovo tacno
-            Toggle("Show Immersive Space", isOn: $showImmersiveSpace)
-                .toggleStyle(.button)
+                Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
+                 .toggleStyle(.button)
                 .padding(.top, 50)
         }
         .padding()
         .onChange(of: showImmersiveSpace) { _, newValue in
             Task {
                 if newValue {
-                    switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                    case .opened:
-                        immersiveSpaceIsShown = true
-                    case .error, .userCancelled:
-                        fallthrough
-                    @unknown default:
-                        immersiveSpaceIsShown = false
-                        showImmersiveSpace = false
-                    }
-                } else if immersiveSpaceIsShown {
+                    await openImmersiveSpace(id: "ImmersiveSpace")
+                } else {
                     await dismissImmersiveSpace()
-                    immersiveSpaceIsShown = false
                 }
             }
         }
