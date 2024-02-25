@@ -9,13 +9,16 @@ import SwiftUI
 
 @main
 struct cryptoApp: App {
+    
+    @State private var viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
+            ImmersiveView(viewModel: viewModel)
         }
     }
 }

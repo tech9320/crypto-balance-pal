@@ -13,6 +13,7 @@
 		EEE811C62B8A4ED000A7B13F /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE811C52B8A4ED000A7B13F /* ImmersiveView.swift */; };
 		EEE811C82B8A4ED300A7B13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE811C72B8A4ED300A7B13F /* Assets.xcassets */; };
 		EEE811CB2B8A4ED300A7B13F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE811CA2B8A4ED300A7B13F /* Preview Assets.xcassets */; };
+		F048AD012B8BAA81008016F5 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048AD002B8BAA81008016F5 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EEE811C72B8A4ED300A7B13F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEE811CA2B8A4ED300A7B13F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EEE811CC2B8A4ED300A7B13F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F048AD002B8BAA81008016F5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				EEE811C12B8A4ED000A7B13F /* cryptoApp.swift */,
+				F048AD002B8BAA81008016F5 /* ViewModel.swift */,
 				EEE811C32B8A4ED000A7B13F /* ContentView.swift */,
 				EEE811C52B8A4ED000A7B13F /* ImmersiveView.swift */,
 				EEE811C72B8A4ED300A7B13F /* Assets.xcassets */,
@@ -159,6 +162,7 @@
 			files = (
 				EEE811C42B8A4ED000A7B13F /* ContentView.swift in Sources */,
 				EEE811C22B8A4ED000A7B13F /* cryptoApp.swift in Sources */,
+				F048AD012B8BAA81008016F5 /* ViewModel.swift in Sources */,
 				EEE811C62B8A4ED000A7B13F /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
