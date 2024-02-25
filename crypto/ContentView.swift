@@ -38,6 +38,8 @@ struct ContentView: View {
 
             Text("Hello, tech9320!")
 
+            Text("Bitcoin price: \(rate)")
+                .padding(.top, 50)
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
                  .toggleStyle(.button)
@@ -65,8 +67,10 @@ struct ContentView: View {
                 let bpi = json["bpi"] as! [String: Any]
                 let usd = bpi["USD"] as! [String: Any]
                 let rate = usd["rate"] as! String
+                self.rate = rate
                 print("Bitcoin price: \(rate)")
             }
+            task.resume()
         }
     }
 }
