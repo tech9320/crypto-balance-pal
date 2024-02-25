@@ -33,7 +33,32 @@ struct ContentView: View {
     var body: some View {
         VStack {
             // Fetch Bitcoin price and show it
-            Text("Bitcoin price: $\(fetchBitcoinPrice())")
+            func fetchBitcoinPrice(completion: @escaping (String) -> Void) {
+                let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
+                URLSession.shared.dataTask(with: url) { (data, _, _) in
+                    guard let data = data else {
+                        completion("Error: No data")
+                        return
+                    }
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data) as! [String: Any]
+                        let bpi = json["bpi"] as! [String: Any]
+                        let usd = bpi["USD"] as! [String: Any]
+                        let rate = usd["rate"] as! String
+                        completion(rate)
+                    } catch {
+                        completion("Error: \(error.localizedDescription)")
+                    }
+                }.resume()
+            }
+
+            // Usage:
+            fetchBitcoinPrice { rate in
+                DispatchQueue.main.async {
+                    let bitcoinPriceLabel = Text("Bitcoin price: $\(rate)")
+                    // Update UI with the bitcoin price label
+                }
+            }
                 .padding(.top, 50)
                 
             Model3D(named: "Scene", bundle: realityKitContentBundle)
@@ -56,16 +81,6 @@ struct ContentView: View {
                 }
             }
         }
-    }
-
-    func fetchBitcoinPrice() async -> String {
-        let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
-        let (data, _) = try! await URLSession.shared.data(from: url)
-        let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
-        let bpi = json["bpi"] as! [String: Any]
-        let usd = bpi["USD"] as! [String: Any]
-        let rate = usd["rate"] as! String
-        return rate
     }
 }
 
