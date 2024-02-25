@@ -39,7 +39,7 @@ struct ContentView: View {
 
             Text("Hello, tech9320!")
 
-            Text("Bitcoin price: \(rate)")
+            Text("Bitcoin price: \(self.rate)")
                 .padding(.top, 50)
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)

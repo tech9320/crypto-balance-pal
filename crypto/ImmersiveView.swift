@@ -2,7 +2,7 @@
 //  ImmersiveView.swift
 //  crypto
 //
-//  Created by Daria Mirkina on 2/24/24.
+//  Created by Tech9320 on 2/24/24.
 //
 
 import SwiftUI
