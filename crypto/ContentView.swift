@@ -71,8 +71,9 @@ struct ContentView: View {
                 self.rate = rate
                 print("Bitcoin price: \(rate)")
             }
-            task.resume()
         }
+        task.resume()
+
     }
 }
 
