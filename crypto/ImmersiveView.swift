@@ -23,7 +23,7 @@ struct ImmersiveView: View {
                 ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
                 content.add(ball)
 
-                let textEntity = viewModel.addText(text: "\(yourBitcoinBalance, specifier: "%.2f") USD" )
+                let textEntity = viewModel.addText(text: "\(String(format: "%.2f", yourBitcoinBalance)) USD" )
                 content.add(textEntity)
             }
         }
