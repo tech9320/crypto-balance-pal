@@ -30,7 +30,6 @@ struct ContentView: View {
 
             TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
                 .keyboardType(.decimalPad)
-                // make the textfield smaller
                 .frame(width: 200)
                 .textFieldStyle(.roundedBorder)
                 .padding(.top, 20)
@@ -38,7 +37,6 @@ struct ContentView: View {
             Text("Entered Bitcoin Amount: \(enteredBitcoinAmount)")
 
             Text("Bitcoin current value: \(self.rate) USD")
-            // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Calculate", isOn: $showImmersiveSpace)
                 .toggleStyle(.button)
                 .padding(.top, 20)
