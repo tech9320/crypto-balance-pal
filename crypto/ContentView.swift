@@ -37,8 +37,8 @@ struct ContentView: View {
 
             Text("Bitcoin value: \(self.rate) USD")
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
-                Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
-                 .toggleStyle(.button)
+                Toggle("Calculate", isOn: $showImmersiveSpace)
+                .toggleStyle(.button)
                 .padding(.top, 20)
 
             Text("Your Bitcoin Balance is : \(yourBitcoinBalance, specifier: "%.2f") USD")
