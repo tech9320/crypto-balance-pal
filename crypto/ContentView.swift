@@ -51,6 +51,7 @@ struct ContentView: View {
             Task {
                 if newValue {
                     await openImmersiveSpace(id: "ImmersiveSpace")
+                    fetchBitcoinPrice()
                 } else {
                     await dismissImmersiveSpace()
                 }
