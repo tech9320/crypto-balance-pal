@@ -17,6 +17,7 @@ struct ImmersiveView: View {
                 ball.scale = [2, 2, 2]
                 ball.position.z = -1.7
                 ball.position.y = 2.2
+                ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
                 content.add(ball)
             }
         }
