@@ -9,11 +9,12 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
+public var yourBitcoinBalance = 0.0
+
 struct ContentView: View {
 
     @State private var rate = "Loading..."
     @State private var enteredBitcoinAmount = ""
-    @State public var yourBitcoinBalance = 0.0
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
 
@@ -72,6 +73,7 @@ struct ContentView: View {
                 let usd = bpi["USD"] as! [String: Any]
                 let rate = usd["rate"] as! String
                 self.rate = rate
+                yourBitcoinBalance = rate
                 print("Bitcoin price: \(rate)")
                 calculateYourBitcoinBalance()
             }
