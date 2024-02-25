@@ -12,6 +12,7 @@ import RealityKitContent
 struct ContentView: View {
 
     @State private var rate = "Loading..."
+    @State private var enteredBitcoinAmount = ""
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
 
@@ -25,6 +26,13 @@ struct ContentView: View {
                 .padding(.bottom, 50)
 
             Text("Hello, tech9320!")
+
+           TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
+                .textFieldStyle(.roundedBorder)
+                .padding(.top, 50)
+            
+            Text("Entered Bitcoin Amount: \(enteredBitcoinAmount)")
+                .padding(.top, 50)
 
             Text("Bitcoin price: \(self.rate)")
                 .padding(.top, 50)
