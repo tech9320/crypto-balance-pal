@@ -69,6 +69,7 @@ struct ContentView: View {
                 let rate = usd["rate"] as! String
                 self.rate = rate
                 print("Bitcoin price: \(rate)")
+                calculateYourBitcoinBalance()
             }
         }
         task.resume()
