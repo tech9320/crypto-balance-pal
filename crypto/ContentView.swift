@@ -37,7 +37,7 @@ struct ContentView: View {
             
             Text("Entered Bitcoin Amount: \(enteredBitcoinAmount)")
 
-            Text("Bitcoin value: \(self.rate) USD")
+            Text("Bitcoin current value: \(self.rate) USD")
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Calculate", isOn: $showImmersiveSpace)
                 .toggleStyle(.button)
