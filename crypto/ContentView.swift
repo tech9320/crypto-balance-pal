@@ -24,6 +24,7 @@ struct BitcoinBall: View {
 
 struct ContentView: View {
 
+    @State private var rate = "Loading..."
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
 
