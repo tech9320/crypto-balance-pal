@@ -24,30 +24,25 @@ struct ContentView: View {
         VStack {
                 
             Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
+                .padding(.bottom, 20)
 
-            // Text("Hello, tech9320!")
+            Text("Hello, tech9320!")
 
             TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
                 .keyboardType(.decimalPad)
                 .textFieldStyle(.roundedBorder)
-                .padding(.top, 50)
+                .padding(.top, 20)
             
             Text("Entered Bitcoin Amount: \(enteredBitcoinAmount)")
-                .padding(.top, 50)
 
             Text("Bitcoin value: \(self.rate) USD")
-                .padding(.top, 50)
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
                  .toggleStyle(.button)
-                // .padding(.top, 50)
+                .padding(.top, 20)
 
             Text("Your Bitcoin Balance is : \(yourBitcoinBalance, specifier: "%.2f") USD")
-                .padding(.top, 50)
-                .font(.title)
-                .foregroundColor(.green)
-                .accessibility(identifier: "YourBitcoinBalanceLabel")
+                .padding(.top, 20)
         }
         .padding()
         .onChange(of: showImmersiveSpace) { _, newValue in
@@ -55,7 +50,6 @@ struct ContentView: View {
                 if newValue {
                     await openImmersiveSpace(id: "ImmersiveSpace")
                     fetchBitcoinPrice()
-                    calculateYourBitcoinBalance()
                 } else {
                     await dismissImmersiveSpace()
                 }
