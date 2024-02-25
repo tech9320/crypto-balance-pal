@@ -13,6 +13,7 @@ struct ContentView: View {
 
     @State private var rate = "Loading..."
     @State private var enteredBitcoinAmount = ""
+    @State public var yourBitcoinBalance = 0.0
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
 
@@ -27,19 +28,23 @@ struct ContentView: View {
 
             Text("Hello, tech9320!")
 
-           TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
+            // let user only enter numbers, and show a number pad with a dot, format it as a decimal
+            TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
+                .keyboardType(.decimalPad)
                 .textFieldStyle(.roundedBorder)
                 .padding(.top, 50)
             
             Text("Entered Bitcoin Amount: \(enteredBitcoinAmount)")
                 .padding(.top, 50)
 
-            Text("Bitcoin price: \(self.rate)")
+            Text("Your Bitcoin price: \(self.rate)")
                 .padding(.top, 50)
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
                  .toggleStyle(.button)
                 .padding(.top, 50)
+
+            Text("Your Bitcoin Balance: \(yourBitcoinBalance, specifier: "%.2f")")
         }
         .padding()
         .onChange(of: showImmersiveSpace) { _, newValue in
@@ -70,6 +75,11 @@ struct ContentView: View {
         }
         task.resume()
 
+    }
+    func calculateYourBitcoinBalance(){
+        if let bitcoinAmount = Double(enteredBitcoinAmount){
+            yourBitcoinBalance = bitcoinAmount * Double(rate)!
+        }
     }
 }
 
