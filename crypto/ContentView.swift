@@ -32,6 +32,13 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            await fetchBitcoinPrice()
+            if let bitcoinPrice = rate {
+                Text("Bitcoin Price: \(self.bitcoinPrice, specifier: "%.2f")")
+            } else {
+                Text("Loading...")
+            }
+            
             Model3D(named: "Scene", bundle: realityKitContentBundle)
             .rotationEffect(Angle(degrees: rotationAngle))
             .padding(.bottom, 50)
@@ -60,6 +67,17 @@ struct ContentView: View {
                     await dismissImmersiveSpace()
                 }
             }
+        }
+        
+        func fetchBitcoinPrice() async throws -> Double {
+            let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let json = try JSONSerialization.jsonObject(with: data) as! [String: Any]
+            let bpi = json["bpi"] as! [String: Any]
+            let usd = bpi["USD"] as! [String: Any]
+            let rate = usd["rate_float"] as! Double
+            self.bitcoinPrice = rate
+            return rate
         }
     }
 }
