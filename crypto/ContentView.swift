@@ -28,7 +28,6 @@ struct ContentView: View {
 
             Text("Hello, tech9320!")
 
-            // let user only enter numbers, and show a number pad with a dot, format it as a decimal
             TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
                 .keyboardType(.decimalPad)
                 .textFieldStyle(.roundedBorder)
@@ -37,14 +36,18 @@ struct ContentView: View {
             Text("Entered Bitcoin Amount: \(enteredBitcoinAmount)")
                 .padding(.top, 50)
 
-            Text("Your Bitcoin price: \(self.rate)")
+            Text("Bitcoin value: \(self.rate) USD")
                 .padding(.top, 50)
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
                  .toggleStyle(.button)
                 .padding(.top, 50)
 
-            Text("Your Bitcoin Balance: \(yourBitcoinBalance, specifier: "%.2f")")
+            Text("Your Bitcoin Balance is : \(yourBitcoinBalance, specifier: "%.2f") USD")
+                .padding(.top, 50)
+                .font(.title)
+                .foregroundColor(.green)
+                .accessibility(identifier: "YourBitcoinBalanceLabel")
         }
         .padding()
         .onChange(of: showImmersiveSpace) { _, newValue in
@@ -52,6 +55,7 @@ struct ContentView: View {
                 if newValue {
                     await openImmersiveSpace(id: "ImmersiveSpace")
                     fetchBitcoinPrice()
+                    calculateYourBitcoinBalance()
                 } else {
                     await dismissImmersiveSpace()
                 }
