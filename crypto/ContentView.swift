@@ -26,7 +26,7 @@ struct ContentView: View {
             Model3D(named: "Scene", bundle: realityKitContentBundle)
                 .padding(.bottom, 50)
 
-            Text("Hello, tech9320!")
+            // Text("Hello, tech9320!")
 
             TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
                 .keyboardType(.decimalPad)
@@ -41,7 +41,7 @@ struct ContentView: View {
             // Ovo ce da nam prikaze loptu i da je skloni na ovo dugme/ toggle
                 Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
                  .toggleStyle(.button)
-                .padding(.top, 50)
+                // .padding(.top, 50)
 
             Text("Your Bitcoin Balance is : \(yourBitcoinBalance, specifier: "%.2f") USD")
                 .padding(.top, 50)
@@ -81,8 +81,11 @@ struct ContentView: View {
 
     }
     func calculateYourBitcoinBalance(){
-        if let bitcoinAmount = Double(enteredBitcoinAmount){
-            yourBitcoinBalance = bitcoinAmount * Double(rate)!
+        print("Calculating your Bitcoin Balance")
+        if let bitcoinAmount = Double(enteredBitcoinAmount) {
+            if let bitcoinRate = Double(rate.replacingOccurrences(of: ",", with: "")) {
+                yourBitcoinBalance = bitcoinAmount * bitcoinRate
+            }
         }
     }
 }
