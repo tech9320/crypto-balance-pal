@@ -56,5 +56,5 @@ struct ContentView: View {
 }
 
 #Preview(windowStyle: .automatic) {
-    BitcoinBall()
+    ContentView()
 }

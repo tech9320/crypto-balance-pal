@@ -13,9 +13,10 @@ struct ImmersiveView: View {
     var body: some View {
         RealityView { content in
             // Add the initial RealityKit content
-            if let ball = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
+            if let ball = try? await Entity(named: "Scene", in: realityKitContentBundle) {
                 ball.scale = [2, 2, 2]
-                ball.position.z = -1
+                ball.position.z = -1.7
+                ball.position.y = 2.2
                 content.add(ball)
             }
         }
