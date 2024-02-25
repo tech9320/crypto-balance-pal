@@ -11,6 +11,8 @@ import SwiftUI
 struct cryptoApp: App {
     
     @State private var viewModel = ViewModel()
+    @State private var contentView = ContentView()
+
     
     var body: some Scene {
         WindowGroup {
@@ -18,7 +20,7 @@ struct cryptoApp: App {
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView(viewModel: viewModel)
+            ImmersiveView(viewModel: viewModel, contentView: contentView)
         }
     }
 }

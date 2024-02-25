@@ -17,6 +17,10 @@ struct ContentView: View {
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    
+    func returnRate() -> String {
+        return self.rate;
+    }
 
     var body: some View {
         VStack {
@@ -37,8 +41,8 @@ struct ContentView: View {
         .onChange(of: showImmersiveSpace) { _, newValue in
             Task {
                 if newValue {
-                    await openImmersiveSpace(id: "ImmersiveSpace")
                     fetchBitcoinPrice()
+                    await openImmersiveSpace(id: "ImmersiveSpace")
                 } else {
                     await dismissImmersiveSpace()
                 }
@@ -47,20 +51,21 @@ struct ContentView: View {
     }
     func fetchBitcoinPrice(){
         print("Fetching Bitcoin Price")
-        let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error: \(error)")
-            } else if let data = data {
-                let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let bpi = json["bpi"] as! [String: Any]
-                let usd = bpi["USD"] as! [String: Any]
-                let rate = usd["rate"] as! String
-                self.rate = rate
-                print("Bitcoin price: \(rate)")
-            }
-        }
-        task.resume()
+//        let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            if let error = error {
+//                print("Error: \(error)")
+//            } else if let data = data {
+//                let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//                let bpi = json["bpi"] as! [String: Any]
+//                let usd = bpi["USD"] as! [String: Any]
+//                let rate = usd["rate"] as! String
+//                self.rate = rate
+//                print("Bitcoin price: \(rate)")
+//            }
+//        }
+//        task.resume()
+        self.rate = "5"
 
     }
 }
