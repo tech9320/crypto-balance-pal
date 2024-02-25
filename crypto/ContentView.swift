@@ -30,6 +30,8 @@ struct ContentView: View {
 
             TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
                 .keyboardType(.decimalPad)
+                // make the textfield smaller
+                .frame(width: 200)
                 .textFieldStyle(.roundedBorder)
                 .padding(.top, 20)
             
