@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "visionOS-mrda-1.png",
       "idiom" : "vision",
       "scale" : "2x"
     }
