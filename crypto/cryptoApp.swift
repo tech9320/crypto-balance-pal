@@ -14,6 +14,7 @@ struct cryptoApp: App {
     
     var body: some Scene {
         WindowGroup {
+            RotationSystem.registerSystem()
             ContentView()
         }
 
@@ -21,4 +22,5 @@ struct cryptoApp: App {
             ImmersiveView(viewModel: viewModel)
         }
     }
+    
 }

@@ -25,6 +25,12 @@ struct ContentView: View {
     
     var body: some View {
         
+            if var rotation: RotationComponent = earth.components[RotationComponent.self] {
+        rotation.speed = configuration.currentSpeed
+        earth.components[RotationComponent.self] = rotation
+    } else {
+        earth.components.set(RotationComponent(speed: configuration.currentSpeed))
+    }
         HStack {
             
             VStack {
@@ -33,6 +39,7 @@ struct ContentView: View {
                 //     .padding(.bottom, 20)
                   Model3D(named:"Scene", bundle: realityKitContentBundle) { model in
                 model.resizable()
+                model.components[RotationComponent.self] = RotationComponent(speed: 0.1, axis: [0, 1, 0])
                     .scaledToFit()
                     .rotation3DEffect(
                         Rotation3D(
