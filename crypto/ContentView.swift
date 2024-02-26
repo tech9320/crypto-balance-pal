@@ -14,7 +14,7 @@ public var yourBitcoinBalance = 0.0
 struct ContentView: View {
 
     @State private var rate = "Loading..."
-    @State private var enteredBitcoinAmount = "1.0"
+    @State private var enteredBitcoinAmount = ""
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
 
@@ -24,43 +24,66 @@ struct ContentView: View {
     func returnRate() -> String {
         return self.rate;
     }
-
+    
     var body: some View {
-        VStack {
-                
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 20)
-
-            Text("Hello, tech9320!")
-
-            TextField("Enter Bitcoin Amount", text: $enteredBitcoinAmount)
-                .keyboardType(.decimalPad)
-                .frame(width: 200)
-                .textFieldStyle(.roundedBorder)
-                .padding(.top, 20)
+        
+        HStack {
             
-            Text("Entered Bitcoin Amount: \(enteredBitcoinAmount)")
+            VStack {
+                // Logo Placeholder
+                Model3D(named: "Scene", bundle: realityKitContentBundle)
+                    .padding(.bottom, 20)
+                
+                Text("CryptoBalance Pal - Your Virtual Crypto Companion")
 
-            Text("Bitcoin current value: \(self.rate) USD")
-                Toggle("Calculate", isOn: $showImmersiveSpace)
-                .toggleStyle(.button)
-                .padding(.top, 20)
+                Text("Welcome to CryptoBalance Pal, your one-stop solution for tracking your Bitcoin holdings in an immersive experience. Seamlessly manage your cryptocurrency portfolio with a user-friendly interface designed for the Apple Vision Pro.")
+                    .padding(.horizontal, 80)
+                    .padding(.top, 20)
+                    .multilineTextAlignment(.center)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .onAppear() {
+                fetchBitcoinPrice()
+            }
+            
+            
+            VStack {
+                
+                Text("Current Bitcoin Value:")
+                Text("\(self.rate) USD")
+                    
+                TextField("Enter Your Bitcoin Amount", text: $enteredBitcoinAmount)
+                    .keyboardType(.decimalPad)
+                    .frame(width: 250)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.top, 20)
+                
+           
+                Text("Your holdings in USD: \(yourBitcoinBalance, specifier: "%.2f") USD")
+                    .padding(.top, 20)
+                    
+                Toggle("Proceed", isOn: $showImmersiveSpace)
+                    .toggleStyle(.button)
+                    .padding(.top, 20)
 
-            Text("Your Bitcoin Balance is : \(yourBitcoinBalance, specifier: "%.2f") USD")
-                .padding(.top, 20)
-        }
-        .padding()
-        .onChange(of: showImmersiveSpace) { _, newValue in
-            Task {
-                if newValue {
-                    fetchBitcoinPrice()
-                    await openImmersiveSpace(id: "ImmersiveSpace")
-                } else {
-                    await dismissImmersiveSpace()
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding()
+            .onChange(of: showImmersiveSpace) { _, newValue in
+                Task {
+                    if newValue {
+                        await openImmersiveSpace(id: "ImmersiveSpace")
+                    } else {
+                        await dismissImmersiveSpace()
+                    }
                 }
             }
+            
         }
+        
+
     }
+    
     func fetchBitcoinPrice(){
         print("Fetching Bitcoin Price")
         let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
@@ -80,6 +103,7 @@ struct ContentView: View {
         task.resume()
 
     }
+    
     func calculateYourBitcoinBalance(){
         print("Calculating your Bitcoin Balance")
         if let bitcoinAmount = Double(enteredBitcoinAmount) {
