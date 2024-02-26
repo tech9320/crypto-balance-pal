@@ -21,6 +21,7 @@ struct ContentView: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     var orientation: SIMD3<Double> = .zero
+    private let modelDepth: Double = 200    
     
     var body: some View {
         
@@ -30,7 +31,7 @@ struct ContentView: View {
                 // Logo Placeholder
                 // Model3D(named: "Scene", bundle: realityKitContentBundle)
                 //     .padding(.bottom, 20)
-                  Model3D(named:"Scene", bundle: worldAssetsBundle) { model in
+                  Model3D(named:"Scene", bundle: realityKitContentBundle) { model in
                 model.resizable()
                     .scaledToFit()
                     .rotation3DEffect(
