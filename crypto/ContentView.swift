@@ -17,6 +17,10 @@ struct ContentView: View {
     @State private var enteredBitcoinAmount = ""
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
+    
+    // Created a copy of the public variable because rerenders are only triggered for State variables
+    @State private var privateBitcoinBalance = 0.0
+
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
@@ -53,9 +57,12 @@ struct ContentView: View {
                     .frame(width: 250)
                     .textFieldStyle(.roundedBorder)
                     .padding(.top, 20)
+                    .onChange(of: enteredBitcoinAmount) {
+                        calculateYourBitcoinBalance()
+                    }
                 
            
-                Text("Your holdings in USD: \(yourBitcoinBalance, specifier: "%.2f") USD")
+                Text("Your holdings in USD: \(privateBitcoinBalance, specifier: "%.2f") USD")
                     .padding(.top, 20)
                     
                 Toggle("Proceed", isOn: $showImmersiveSpace)
@@ -102,11 +109,15 @@ struct ContentView: View {
     }
     
     func calculateYourBitcoinBalance(){
-        print("Calculating your Bitcoin Balance")
+        print("Calculating your Bitcoin Balance: \(enteredBitcoinAmount)")
         if let bitcoinAmount = Double(enteredBitcoinAmount) {
             if let bitcoinRate = Double(rate.replacingOccurrences(of: ",", with: "")) {
                 yourBitcoinBalance = bitcoinAmount * bitcoinRate
+                privateBitcoinBalance = bitcoinAmount * bitcoinRate
             }
+        } else {
+            yourBitcoinBalance = 0.0
+            privateBitcoinBalance = 0.0
         }
     }
 }

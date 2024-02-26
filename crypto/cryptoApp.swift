@@ -15,7 +15,9 @@ struct cryptoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(minWidth: 1000, minHeight: 800)
         }
+        .windowResizability(.contentSize)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView(viewModel: viewModel)
