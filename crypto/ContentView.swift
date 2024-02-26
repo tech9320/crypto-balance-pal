@@ -20,10 +20,7 @@ struct ContentView: View {
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    
-    func returnRate() -> String {
-        return self.rate;
-    }
+    var orientation: SIMD3<Double> = .zero
     
     var body: some View {
         
@@ -31,9 +28,23 @@ struct ContentView: View {
             
             VStack {
                 // Logo Placeholder
-                Model3D(named: "Scene", bundle: realityKitContentBundle)
-                    .padding(.bottom, 20)
-                
+                // Model3D(named: "Scene", bundle: realityKitContentBundle)
+                //     .padding(.bottom, 20)
+                  Model3D(named:"Scene", bundle: worldAssetsBundle) { model in
+                model.resizable()
+                    .scaledToFit()
+                    .rotation3DEffect(
+                        Rotation3D(
+                            eulerAngles: .init(angles: orientation, order: .xyz)
+                        )
+                    )
+                    .frame(depth: modelDepth)
+                    .offset(z: -modelDepth / 2)
+                    .accessibilitySortPriority(1)
+            } placeholder: {
+                ProgressView()
+                    .offset(z: -modelDepth * 0.75)
+        }
                 Text("CryptoBalance Pal - Your Virtual Crypto Companion")
 
                 Text("Welcome to CryptoBalance Pal, your one-stop solution for tracking your Bitcoin holdings in an immersive experience. Seamlessly manage your cryptocurrency portfolio with a user-friendly interface designed for the Apple Vision Pro.")
