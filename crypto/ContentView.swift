@@ -31,7 +31,9 @@ struct ContentView: View {
             
             VStack {
                 // Logo Placeholder
-                Model3D(named: "Scene", bundle: realityKitContentBundle)
+                Image(.logo)
+                    .resizable()
+                    .frame(width: 350, height: 350)
                     .padding(.bottom, 20)
                 
                 Text("CryptoBalance Pal - Your Virtual Crypto Companion")
