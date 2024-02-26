@@ -21,10 +21,6 @@ struct ContentView: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
-    func returnRate() -> String {
-        return self.rate;
-    }
-    
     var body: some View {
         
         HStack {
@@ -72,6 +68,7 @@ struct ContentView: View {
             .onChange(of: showImmersiveSpace) { _, newValue in
                 Task {
                     if newValue {
+                        calculateYourBitcoinBalance()
                         await openImmersiveSpace(id: "ImmersiveSpace")
                     } else {
                         await dismissImmersiveSpace()
