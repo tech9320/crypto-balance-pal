@@ -13,7 +13,7 @@ struct cryptoApp: App {
     @State private var viewModel = ViewModel()
     
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: "ContentView") {
             ContentView()
                 .frame(minWidth: 1000, minHeight: 800)
         }

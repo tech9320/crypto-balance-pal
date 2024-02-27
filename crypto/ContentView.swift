@@ -21,7 +21,7 @@ struct ContentView: View {
     // Created a copy of the public variable because rerenders are only triggered for State variables
     @State private var privateBitcoinBalance = 0.0
 
-
+    @Environment(\.dismissWindow) var dismissWindow
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
@@ -79,6 +79,7 @@ struct ContentView: View {
                     if newValue {
                         calculateYourBitcoinBalance()
                         await openImmersiveSpace(id: "ImmersiveSpace")
+                        dismissWindow(id: "ContentView")
                     } else {
                         await dismissImmersiveSpace()
                     }
