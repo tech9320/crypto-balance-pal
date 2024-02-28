@@ -19,8 +19,10 @@ struct cryptoApp: App {
         }
         .windowResizability(.contentSize)
 
-        ImmersiveSpace(id: "ImmersiveSpace") {
+        WindowGroup(id: "ImmersiveSpace") {
             ImmersiveView(viewModel: viewModel)
         }
+        .windowStyle(.volumetric)
+        .defaultSize(width: 2.0, height: 2.0, depth: 2.0, in: .meters)
     }
 }

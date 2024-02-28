@@ -21,9 +21,10 @@ struct ImmersiveView: View {
             // Add the initial RealityKit content
             self.ball = try! await Entity(named: "Scene", in: realityKitContentBundle)
 
-                ball.scale = [2, 2, 2]
-                ball.position.z = -1.7
-                ball.position.y = 1.8
+                // this code will make the ball not show in the window
+                // ball.scale = [2, 2, 2]
+                // ball.position.z = -1.7
+                // ball.position.y = 1.8
                 ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
                 ball.components.set(InputTargetComponent(allowedInputTypes: .indirect))
                 ball.generateCollisionShapes(recursive: false)
