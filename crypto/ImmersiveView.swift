@@ -12,6 +12,7 @@ import RealityKitContent
 struct ImmersiveView: View {
     
     @Environment(\.dismissWindow) var dismissWindow
+    @Environment(\.openWindow) var openWindow
 
     var viewModel: ViewModel
 
@@ -27,6 +28,15 @@ struct ImmersiveView: View {
             let textEntity = viewModel.addText(text: "\(String(format: "%.2f", yourBitcoinBalance)) USD" )
             content.add(textEntity)
         }
+        Button("Close") {
+            openWindow(id: "StartingWindow")
+            dismissWindow(id: "ImmersiveSpace")
+        }
+        .frame(width: 100, height: 50)
+        .background(Color.blue)
+        .foregroundColor(.white)
+        .cornerRadius(10)
+        
     }
 }
 
