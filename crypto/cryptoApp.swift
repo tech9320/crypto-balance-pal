@@ -13,7 +13,7 @@ struct cryptoApp: App {
     @State private var viewModel = ViewModel()
     
     var body: some Scene {
-        WindowGroup(id: "ContentView") {
+        WindowGroup("StartingWindow",id: "StartingWindow") {
             ContentView()
                 .frame(minWidth: 1000, minHeight: 800)
         }
@@ -23,6 +23,6 @@ struct cryptoApp: App {
             ImmersiveView(viewModel: viewModel)
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: 2.0, height: 2.0, depth: 2.0, in: .meters)
+        .defaultSize(width: 1.0, height: 0.8, depth: 0.1, in: .meters)
     }
 }

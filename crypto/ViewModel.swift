@@ -16,7 +16,7 @@ class ViewModel {
         let material = UnlitMaterial(color: .white)
 
         let textEntity = ModelEntity(mesh: textMeshResource, materials: [material])
-        textEntity.position = SIMD3(x: -(textMeshResource.bounds.extents.x / 2), y: 1.55, z: -1.7)
+        textEntity.position = SIMD3(x: -(textMeshResource.bounds.extents.x / 2), y: -0.25, z: 0)
 
         return textEntity
     }

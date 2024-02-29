@@ -15,7 +15,6 @@ struct ContentView: View {
 
     @State private var rate = "Loading..."
     @State private var enteredBitcoinAmount = ""
-    @State private var showMenu = false
     
     // Created a copy of the public variable because rerenders are only triggered for State variables
     @State private var privateBitcoinBalance = 0.0
@@ -64,25 +63,15 @@ struct ContentView: View {
            
                 Text("Your holdings in USD: \(privateBitcoinBalance, specifier: "%.2f") USD")
                     .padding(.top, 20)
-                    
-                Toggle("Proceed", isOn: $showMenu)
-                    .toggleStyle(.button)
-                    .padding(.top, 20)
+                
+                Button("Proceed") {
+                    calculateYourBitcoinBalance()
+                    openWindow(id: "ImmersiveSpace")
+                }
 
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
-            .onChange(of: showMenu) { _, newValue in
-                Task {
-                    if newValue {
-                        showMenu = false
-                        calculateYourBitcoinBalance()
-                        openWindow(id: "ImmersiveSpace")
-                        dismissWindow(id: "ContentView")
-                    } else {
-                    }
-                }
-            }
             
         }
         
