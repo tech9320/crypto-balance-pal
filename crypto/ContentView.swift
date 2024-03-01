@@ -10,11 +10,12 @@ import RealityKit
 import RealityKitContent
 
 public var yourBitcoinBalance = 0.0
+public var kolkoSamUneo = ""
 
 struct ContentView: View {
 
     @State private var rate = "Loading..."
-    @State private var enteredBitcoinAmount = ""
+    @State private var enteredBitcoinAmount = kolkoSamUneo
     
     // Created a copy of the public variable because rerenders are only triggered for State variables
     @State private var privateBitcoinBalance = 0.0
@@ -58,6 +59,7 @@ struct ContentView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.top, 20)
                     .onChange(of: enteredBitcoinAmount) {
+                        kolkoSamUneo = enteredBitcoinAmount
                         calculateYourBitcoinBalance()
                     }
                 
