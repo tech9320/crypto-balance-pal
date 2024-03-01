@@ -28,21 +28,32 @@ struct ImmersiveView: View {
             let textEntity = viewModel.addText(text: "\(String(format: "%.2f", yourBitcoinBalance)) USD" )
             content.add(textEntity)
         }
-        
-        Button("Close") {
-            openWindow(id: "StartingWindow")
-            dismissWindow(id: "ImmersiveSpace")
+
+        HStack {
+            Button(action: {
+                openWindow(id: "StartingWindow")
+                dismissWindow(id: "ImmersiveSpace")
+            }) {
+              Label("Go Back", systemImage: "arrowshape.backward.fill")
+                .padding()
+                .font(.system(size: 48))
+                .foregroundColor(.white)
+                .fontWeight(.bold)
+                .tint(.white)
+                .cornerRadius(10)
+            }
+            
+            Button(action: {}) {
+              Label("Refresh", systemImage: "arrow.clockwise")
+                .padding()
+                .font(.system(size: 48))
+                .foregroundColor(.white)
+                .fontWeight(.bold)
+                .tint(.white)
+                .cornerRadius(10)
+            }
         }
-        .frame(width: 100, height: 50)
-        .background(Color.red)
-        .foregroundColor(.white)
-        .cornerRadius(10)
-        Button("Refresh") {
-            fetchBitcoinPrice()
-        }
-        .frame(width: 100, height: 50)
-        .foregroundColor(.white)
-        .cornerRadius(10)
+
         
     }
 }
