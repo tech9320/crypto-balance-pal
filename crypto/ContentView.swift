@@ -42,6 +42,7 @@ struct ContentView: View {
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .onAppear() {
+                dismissWindow(id: "ImmersiveSpace")
                 fetchBitcoinPrice()
             }
             

@@ -28,12 +28,19 @@ struct ImmersiveView: View {
             let textEntity = viewModel.addText(text: "\(String(format: "%.2f", yourBitcoinBalance)) USD" )
             content.add(textEntity)
         }
+        
         Button("Close") {
             openWindow(id: "StartingWindow")
             dismissWindow(id: "ImmersiveSpace")
         }
         .frame(width: 100, height: 50)
-        .background(Color.blue)
+        .background(Color.red)
+        .foregroundColor(.white)
+        .cornerRadius(10)
+        Button("Refresh") {
+            fetchBitcoinPrice()
+        }
+        .frame(width: 100, height: 50)
         .foregroundColor(.white)
         .cornerRadius(10)
         
