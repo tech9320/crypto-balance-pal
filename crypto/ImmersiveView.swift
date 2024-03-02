@@ -9,6 +9,9 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
+var event: EventSubscription?
+var animationPlayback: AnimationPlaybackController?
+
 struct ImmersiveView: View {
     
     @Environment(\.dismissWindow) var dismissWindow
@@ -31,6 +34,11 @@ struct ImmersiveView: View {
             content.add(ball)
             // let textEntity = viewModel.addText(text: "\(String(format: "%.2f", localBitcoinBalance)) USD" )
             // content.add(textEntity)
+        } update: { content in
+           if let model = content.entities.first {
+            performSpin(on: model)
+            setUpObservers(content: content, model: model)
+           }
         }
 
         Text("Your Bitcoin Balance: \(String(format: "%.2f", localBitcoinBalance)) USD")
@@ -75,6 +83,21 @@ struct ImmersiveView: View {
             }
         }
        
+    }
+
+    func performSpin(on model: Entity) {
+        guard let ball = model.children.first else { return }
+        animationPlayback = ball.move(to: .init(yaw: -.pi), relativeTo: ball, duration: 2.5, timingFunction: .linear)
+    }
+
+    func setUpObservers(content: RealityViewContent, model: Entity){
+        event?.cancel()
+
+        event = content.subscribe(to: AnimationEvents.PlaybackCompleted.self, on: model.children.first!) { event in
+            if animationPlayback == event.playbackController {
+                performSpin(on: model)
+            }        
+            }
     }
 }
 

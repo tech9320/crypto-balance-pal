@@ -23,6 +23,6 @@ struct cryptoApp: App {
             ImmersiveView(viewModel: viewModel)
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: 1.0, height: 0.8, depth: 0.1, in: .meters)
+        .defaultSize(width: 1.0, height: 0.8, depth: 0.3, in: .meters)
     }
 }

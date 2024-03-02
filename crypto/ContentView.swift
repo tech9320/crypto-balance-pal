@@ -104,11 +104,11 @@ struct ContentView: View {
     
     func calculateYourBitcoinBalance(){
         print("Calculating your Bitcoin Balance: \(enteredBitcoinAmount)")
-        if let bitcoinAmount = Double(enteredBitcoinAmount) {
-            if let bitcoinRate = Double(rate.replacingOccurrences(of: ",", with: "")) {
+        if let bitcoinRate = Double(rate.replacingOccurrences(of: ",", with: "")) {
+            publicBitcoinValueDouble = bitcoinRate
+            if let bitcoinAmount = Double(enteredBitcoinAmount) {
                 publicYourBitcoinBalance = bitcoinAmount * bitcoinRate
                 privateBitcoinBalance = bitcoinAmount * bitcoinRate
-                publicBitcoinValueDouble = bitcoinRate
             }
         } else {
             publicYourBitcoinBalance = 0.0
