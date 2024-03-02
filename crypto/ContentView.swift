@@ -10,6 +10,7 @@ import RealityKit
 import RealityKitContent
 
 public var yourBitcoinBalance = 0.0
+public var publicFetchBitcoinPrice = {}
 
 struct ContentView: View {
 
@@ -80,6 +81,7 @@ struct ContentView: View {
     }
     
     func fetchBitcoinPrice(){
+        publicFetchBitcoinPrice = fetchBitcoinPrice
         print("Fetching Bitcoin Price")
         let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in

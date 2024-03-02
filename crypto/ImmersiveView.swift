@@ -43,7 +43,10 @@ struct ImmersiveView: View {
                 .cornerRadius(10)
             }
             
-            Button(action: {}) {
+            Button(action: {
+                publicFetchBitcoinPrice()
+                print(String(yourBitcoinBalance))
+            }) {
               Label("Refresh", systemImage: "arrow.clockwise")
                 .padding()
                 .font(.system(size: 48))
