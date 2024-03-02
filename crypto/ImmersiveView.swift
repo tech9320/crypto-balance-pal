@@ -18,18 +18,32 @@ struct ImmersiveView: View {
 
     @State private var ball = Entity()
     @State private var localBitcoinBalance = 0.0
+    @State private var localBitcoinValueDouble = 0.0
 
     var body: some View {
         RealityView { content in
             dismissWindow(id: "StartingWindow")
-            localBitcoinBalance = yourBitcoinBalance
+            localBitcoinBalance = publicYourBitcoinBalance
+            localBitcoinValueDouble = publicBitcoinValueDouble
             self.ball = try! await Entity(named: "Scene", in: realityKitContentBundle)
             ball.scale = [2, 2, 2]
             ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
             content.add(ball)
-            let textEntity = viewModel.addText(text: "\(String(format: "%.2f", yourBitcoinBalance)) USD" )
-            content.add(textEntity)
+            // let textEntity = viewModel.addText(text: "\(String(format: "%.2f", localBitcoinBalance)) USD" )
+            // content.add(textEntity)
         }
+
+        Text("Your Bitcoin Balance: \(String(format: "%.2f", localBitcoinBalance)) USD")
+            .font(.system(size: 80))
+            .foregroundColor(.white)
+            .fontWeight(.bold)
+            .padding()
+
+        Text("Bitcoin Value: \(String(format: "%.2f", localBitcoinValueDouble)) USD")
+            .font(.system(size: 50))
+            .foregroundColor(.white)
+            .fontWeight(.bold)
+            .padding()
 
         HStack {
             Button(action: {
@@ -47,7 +61,8 @@ struct ImmersiveView: View {
             
             Button(action: {
                 publicFetchBitcoinPrice()
-                localBitcoinBalance = yourBitcoinBalance
+                localBitcoinBalance = publicYourBitcoinBalance
+                localBitcoinValueDouble = publicBitcoinValueDouble
 
             }) {
               Label("Refresh", systemImage: "arrow.clockwise")
@@ -59,12 +74,7 @@ struct ImmersiveView: View {
                 .cornerRadius(10)
             }
         }
-
-        Text("Bitcoin Balance: \(String(format: "%.2f", localBitcoinBalance)) USD")
-            .font(.system(size: 80))
-            .foregroundColor(.white)
-            .fontWeight(.bold)
-            .padding()
+       
     }
 }
 

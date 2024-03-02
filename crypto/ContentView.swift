@@ -9,8 +9,9 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-public var yourBitcoinBalance = 0.0
+public var publicYourBitcoinBalance = 0.0
 public var publicFetchBitcoinPrice = {}
+public var publicBitcoinValueDouble = 0.0
 
 struct ContentView: View {
 
@@ -105,12 +106,14 @@ struct ContentView: View {
         print("Calculating your Bitcoin Balance: \(enteredBitcoinAmount)")
         if let bitcoinAmount = Double(enteredBitcoinAmount) {
             if let bitcoinRate = Double(rate.replacingOccurrences(of: ",", with: "")) {
-                yourBitcoinBalance = bitcoinAmount * bitcoinRate
+                publicYourBitcoinBalance = bitcoinAmount * bitcoinRate
                 privateBitcoinBalance = bitcoinAmount * bitcoinRate
+                publicBitcoinValueDouble = bitcoinRate
             }
         } else {
-            yourBitcoinBalance = 0.0
+            publicYourBitcoinBalance = 0.0
             privateBitcoinBalance = 0.0
+            publicBitcoinValueDouble = 0.0
         }
     }
 }
