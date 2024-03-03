@@ -46,12 +46,15 @@ struct ImmersiveView: View {
             .foregroundColor(.white)
             .fontWeight(.bold)
             .padding()
+            .multilineTextAlignment(.center)
+            .offset(y: -100)
 
         Text("Bitcoin Value: \(String(format: "%.2f", localBitcoinValueDouble)) USD")
             .font(.system(size: 50))
             .foregroundColor(.white)
             .fontWeight(.bold)
             .padding()
+            .offset(y: -100)
 
         HStack {
             Button(action: {
@@ -82,6 +85,7 @@ struct ImmersiveView: View {
                 .cornerRadius(10)
             }
         }
+        .offset(y: -100)
        
     }
 
