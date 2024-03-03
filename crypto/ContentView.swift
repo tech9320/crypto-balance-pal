@@ -109,11 +109,10 @@ struct ContentView: View {
             if let bitcoinAmount = Double(enteredBitcoinAmount) {
                 publicYourBitcoinBalance = bitcoinAmount * bitcoinRate
                 privateBitcoinBalance = bitcoinAmount * bitcoinRate
+            }  else {
+                publicYourBitcoinBalance = 0.0
+                privateBitcoinBalance = 0.0
             }
-        } else {
-            publicYourBitcoinBalance = 0.0
-            privateBitcoinBalance = 0.0
-            publicBitcoinValueDouble = 0.0
         }
     }
 }
