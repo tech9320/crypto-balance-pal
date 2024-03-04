@@ -9,9 +9,7 @@ import SwiftUI
 
 @main
 struct cryptoApp: App {
-    
-    @State private var viewModel = ViewModel()
-    
+        
     var body: some Scene {
         WindowGroup("StartingWindow",id: "StartingWindow") {
             ContentView()
@@ -20,7 +18,7 @@ struct cryptoApp: App {
         .windowResizability(.contentSize)
 
         WindowGroup(id: "ImmersiveSpace") {
-            ImmersiveView(viewModel: viewModel)
+            ImmersiveView()
         }
         .windowStyle(.volumetric)
         .defaultSize(width: 1.0, height: 0.8, depth: 0.3, in: .meters)

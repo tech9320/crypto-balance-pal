@@ -17,8 +17,6 @@ struct ImmersiveView: View {
     @Environment(\.dismissWindow) var dismissWindow
     @Environment(\.openWindow) var openWindow
 
-    var viewModel: ViewModel
-
     @State private var ball = Entity()
     @State private var localBitcoinBalance = 0.0
     @State private var localBitcoinValueDouble = 0.0
@@ -32,8 +30,6 @@ struct ImmersiveView: View {
             ball.scale = [2, 2, 2]
             ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
             content.add(ball)
-            // let textEntity = viewModel.addText(text: "\(String(format: "%.2f", localBitcoinBalance)) USD" )
-            // content.add(textEntity)
         } update: { content in
            if let model = content.entities.first {
             performSpin(on: model)
@@ -106,6 +102,6 @@ struct ImmersiveView: View {
 }
 
 #Preview {
-    ImmersiveView(viewModel: ViewModel())
+    ImmersiveView()
         .previewLayout(.sizeThatFits)
 }
