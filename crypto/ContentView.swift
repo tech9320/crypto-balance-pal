@@ -9,9 +9,9 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-public var publicYourBitcoinBalance = 0.0
+public var publicYourBitcoinBalance = "0.0"
 public var publicFetchBitcoinPrice = {}
-public var publicBitcoinValueDouble = 0.0
+public var publicBitcoinValue = "0.0"
 
 struct ContentView: View {
 
@@ -94,7 +94,6 @@ struct ContentView: View {
                 let usd = bpi["USD"] as! [String: Any]
                 let rate = usd["rate"] as! String
                 self.rate = rate
-                print("Bitcoin price: \(rate)")
                 calculateYourBitcoinBalance()
             }
         }
@@ -105,14 +104,18 @@ struct ContentView: View {
     func calculateYourBitcoinBalance(){
         print("Calculating your Bitcoin Balance: \(enteredBitcoinAmount)")
         if let bitcoinRate = Double(rate.replacingOccurrences(of: ",", with: "")) {
-            publicBitcoinValueDouble = bitcoinRate
+            publicBitcoinValue = rate
             if let bitcoinAmount = Double(enteredBitcoinAmount) {
-                publicYourBitcoinBalance = bitcoinAmount * bitcoinRate
                 privateBitcoinBalance = bitcoinAmount * bitcoinRate
             }  else {
-                publicYourBitcoinBalance = 0.0
                 privateBitcoinBalance = 0.0
             }
+            
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            numberFormatter.groupingSeparator = ","
+            numberFormatter.decimalSeparator = "."
+            publicYourBitcoinBalance = numberFormatter.string(from: NSNumber(value: privateBitcoinBalance))!
         }
     }
 }

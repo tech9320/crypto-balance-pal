@@ -18,14 +18,14 @@ struct ImmersiveView: View {
     @Environment(\.openWindow) var openWindow
 
     @State private var ball = Entity()
-    @State private var localBitcoinBalance = 0.0
-    @State private var localBitcoinValueDouble = 0.0
+    @State private var localBitcoinBalance = "0.0"
+    @State private var localBitcoinValue = "0.0"
 
     var body: some View {
         RealityView { content in
             dismissWindow(id: "StartingWindow")
             localBitcoinBalance = publicYourBitcoinBalance
-            localBitcoinValueDouble = publicBitcoinValueDouble
+            localBitcoinValue = publicBitcoinValue
             self.ball = try! await Entity(named: "Scene", in: realityKitContentBundle)
             ball.scale = [2, 2, 2]
             ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
@@ -37,7 +37,7 @@ struct ImmersiveView: View {
            }
         }
 
-        Text("Your Bitcoin Balance: \(String(format: "%.2f", localBitcoinBalance)) USD")
+        Text("Your Bitcoin Balance: \(localBitcoinBalance) USD")
             .font(.system(size: 80))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -45,7 +45,7 @@ struct ImmersiveView: View {
             .multilineTextAlignment(.center)
             .offset(y: -100)
 
-        Text("Bitcoin Value: \(String(format: "%.2f", localBitcoinValueDouble)) USD")
+        Text("Bitcoin Value: \(localBitcoinValue) USD")
             .font(.system(size: 50))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -69,7 +69,7 @@ struct ImmersiveView: View {
             Button(action: {
                 publicFetchBitcoinPrice()
                 localBitcoinBalance = publicYourBitcoinBalance
-                localBitcoinValueDouble = publicBitcoinValueDouble
+                localBitcoinValue = publicBitcoinValue
 
             }) {
               Label("Refresh", systemImage: "arrow.clockwise")
