@@ -9,17 +9,13 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-public var publicYourBitcoinBalance = "0.0"
-public var publicFetchBitcoinPrice = {}
-public var publicBitcoinValue = "0.0"
-
 struct ContentView: View {
 
-    @State private var rate = "Loading..."
-    @State private var enteredBitcoinAmount = ""
-    
-    // Created a copy of the public variable because rerenders are only triggered for State variables
-    @State private var privateBitcoinBalance = 0.0
+    @Binding var bitcoinBalance: String
+    @Binding var bitcoinValue: String
+    @Binding var enteredBitcoinAmount: String
+    var fetchBitcoinPrice: () -> Void
+    var calculateYourBitcoinBalance: () -> Void
 
     @Environment(\.dismissWindow) var dismissWindow
     @Environment(\.openWindow) var openWindow
@@ -29,7 +25,6 @@ struct ContentView: View {
         HStack {
             
             VStack {
-                // Logo Placeholder
                 Image(.logo)
                     .resizable()
                     .frame(width: 350, height: 350)
@@ -52,7 +47,7 @@ struct ContentView: View {
             VStack {
                 
                 Text("Current Bitcoin Value:")
-                Text("\(self.rate) USD")
+                Text("\(self.bitcoinValue) USD")
                     
                 TextField("Enter Your Bitcoin Amount", text: $enteredBitcoinAmount)
                     .keyboardType(.decimalPad)
@@ -64,7 +59,7 @@ struct ContentView: View {
                     }
                 
            
-                Text("Your holdings in USD: \(privateBitcoinBalance, specifier: "%.2f") USD")
+                Text("Your holdings in USD: \(bitcoinBalance) USD")
                     .padding(.top, 20)
                 
                 Button("Proceed") {
@@ -80,46 +75,16 @@ struct ContentView: View {
         
 
     }
-    
-    func fetchBitcoinPrice(){
-        publicFetchBitcoinPrice = fetchBitcoinPrice
-        print("Fetching Bitcoin Price")
-        let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error: \(error)")
-            } else if let data = data {
-                let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let bpi = json["bpi"] as! [String: Any]
-                let usd = bpi["USD"] as! [String: Any]
-                let rate = usd["rate"] as! String
-                self.rate = rate
-                calculateYourBitcoinBalance()
-            }
-        }
-        task.resume()
-
-    }
-    
-    func calculateYourBitcoinBalance(){
-        print("Calculating your Bitcoin Balance: \(enteredBitcoinAmount)")
-        if let bitcoinRate = Double(rate.replacingOccurrences(of: ",", with: "")) {
-            publicBitcoinValue = rate
-            if let bitcoinAmount = Double(enteredBitcoinAmount) {
-                privateBitcoinBalance = bitcoinAmount * bitcoinRate
-            }  else {
-                privateBitcoinBalance = 0.0
-            }
-            
-            let numberFormatter = NumberFormatter()
-            numberFormatter.numberStyle = .decimal
-            numberFormatter.groupingSeparator = ","
-            numberFormatter.decimalSeparator = "."
-            publicYourBitcoinBalance = numberFormatter.string(from: NSNumber(value: privateBitcoinBalance))!
-        }
-    }
 }
 
 #Preview(windowStyle: .automatic) {
-    ContentView()
+    let bitcoinBalance = Binding.constant("0.0")
+    let bitcoinValue = Binding.constant("0.0")
+    let enteredBitcoinAmount = Binding.constant("")
+
+    return ContentView(bitcoinBalance: bitcoinBalance,
+                       bitcoinValue: bitcoinValue,
+                       enteredBitcoinAmount: enteredBitcoinAmount,
+                       fetchBitcoinPrice: {},
+                       calculateYourBitcoinBalance: {})
 }

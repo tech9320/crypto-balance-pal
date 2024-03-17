@@ -18,14 +18,13 @@ struct ImmersiveView: View {
     @Environment(\.openWindow) var openWindow
 
     @State private var ball = Entity()
-    @State private var localBitcoinBalance = "0.0"
-    @State private var localBitcoinValue = "0.0"
+    @Binding var bitcoinBalance: String
+    @Binding var bitcoinValue: String
+    var fetchBitcoinPrice: () -> Void
 
     var body: some View {
         RealityView { content in
             dismissWindow(id: "StartingWindow")
-            localBitcoinBalance = publicYourBitcoinBalance
-            localBitcoinValue = publicBitcoinValue
             self.ball = try! await Entity(named: "Scene", in: realityKitContentBundle)
             ball.scale = [2, 2, 2]
             ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
@@ -37,7 +36,7 @@ struct ImmersiveView: View {
            }
         }
 
-        Text("Your Bitcoin Balance: \(localBitcoinBalance) USD")
+        Text("Your Bitcoin Balance: \(bitcoinBalance) USD")
             .font(.system(size: 80))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -45,7 +44,7 @@ struct ImmersiveView: View {
             .multilineTextAlignment(.center)
             .offset(y: -100)
 
-        Text("Bitcoin Value: \(localBitcoinValue) USD")
+        Text("Bitcoin Value: \(bitcoinValue) USD")
             .font(.system(size: 50))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -67,9 +66,7 @@ struct ImmersiveView: View {
             }
             
             Button(action: {
-                publicFetchBitcoinPrice()
-                localBitcoinBalance = publicYourBitcoinBalance
-                localBitcoinValue = publicBitcoinValue
+                fetchBitcoinPrice()
 
             }) {
               Label("Refresh", systemImage: "arrow.clockwise")
@@ -102,6 +99,9 @@ struct ImmersiveView: View {
 }
 
 #Preview {
-    ImmersiveView()
+    let bitcoinBalance = Binding.constant("0.0")
+    let bitcoinValue = Binding.constant("0.0")
+    
+    return ImmersiveView(bitcoinBalance: bitcoinBalance, bitcoinValue: bitcoinValue, fetchBitcoinPrice: {})
         .previewLayout(.sizeThatFits)
 }
