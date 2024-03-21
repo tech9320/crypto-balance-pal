@@ -1,10 +1,3 @@
-//
-//  ImmersiveView.swift
-//  crypto
-//
-//  Created by Tech9320 on 2/24/24.
-//
-
 import SwiftUI
 import RealityKit
 import RealityKitContent
@@ -20,6 +13,7 @@ struct ImmersiveView: View {
     @State private var ball = Entity()
     @Binding var bitcoinBalance: String
     @Binding var bitcoinValue: String
+    @Binding var currency: String
     var fetchBitcoinPrice: () -> Void
 
     var body: some View {
@@ -36,7 +30,7 @@ struct ImmersiveView: View {
            }
         }
 
-        Text("Your Bitcoin Balance: \(bitcoinBalance) USD")
+        Text("Your Bitcoin Balance: \(bitcoinBalance) \(currency)")
             .font(.system(size: 80))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -44,7 +38,7 @@ struct ImmersiveView: View {
             .multilineTextAlignment(.center)
             .offset(y: -100)
 
-        Text("Bitcoin Value: \(bitcoinValue) USD")
+        Text("Bitcoin Value: \(bitcoinValue) \(currency)")
             .font(.system(size: 50))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -101,7 +95,12 @@ struct ImmersiveView: View {
 #Preview {
     let bitcoinBalance = Binding.constant("0.0")
     let bitcoinValue = Binding.constant("0.0")
-    
-    return ImmersiveView(bitcoinBalance: bitcoinBalance, bitcoinValue: bitcoinValue, fetchBitcoinPrice: {})
-        .previewLayout(.sizeThatFits)
+    let currency = Binding.constant("USD")
+
+    return ImmersiveView(
+                    bitcoinBalance: bitcoinBalance,
+                    bitcoinValue: bitcoinValue,
+                    currency: currency,
+                    fetchBitcoinPrice: {}
+                   ).previewLayout(.sizeThatFits)
 }

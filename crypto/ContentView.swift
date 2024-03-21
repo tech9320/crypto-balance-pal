@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  crypto
-//
-//  Created by Tech9320 on 2/24/24.
-//
-
 import SwiftUI
 import RealityKit
 import RealityKitContent
@@ -14,6 +7,7 @@ struct ContentView: View {
     @Binding var bitcoinBalance: String
     @Binding var bitcoinValue: String
     @Binding var enteredBitcoinAmount: String
+    @Binding var currency: String
     var fetchBitcoinPrice: () -> Void
     var calculateYourBitcoinBalance: () -> Void
 
@@ -47,7 +41,7 @@ struct ContentView: View {
             VStack {
                 
                 Text("Current Bitcoin Value:")
-                Text("\(self.bitcoinValue) USD")
+                Text("\(self.bitcoinValue) \(self.currency)")
                     
                 TextField("Enter Your Bitcoin Amount", text: $enteredBitcoinAmount)
                     .keyboardType(.decimalPad)
@@ -59,8 +53,35 @@ struct ContentView: View {
                     }
                 
            
-                Text("Your holdings in USD: \(bitcoinBalance) USD")
+                Text("Your Holdings: \(bitcoinBalance) \(currency)")
                     .padding(.top, 20)
+                
+                Menu {
+                    Button {
+                        self.currency = "EUR"
+                        fetchBitcoinPrice()
+                    } label: {
+                        Text("EUR")
+                        Text("€")
+                    }
+                    Button {
+                        self.currency = "GBP"
+                        fetchBitcoinPrice()
+                    } label: {
+                        Text("GBP")
+                        Text("£")
+                    }
+                    Button {
+                        self.currency = "USD"
+                        fetchBitcoinPrice()
+                    } label: {
+                        Text("USD")
+                        Text("$")
+                    }
+                } label: {
+                     Text("Change Currency")
+                     Image(systemName: "arrow.down.circle")
+                }
                 
                 Button("Proceed") {
                     calculateYourBitcoinBalance()
@@ -81,10 +102,12 @@ struct ContentView: View {
     let bitcoinBalance = Binding.constant("0.0")
     let bitcoinValue = Binding.constant("0.0")
     let enteredBitcoinAmount = Binding.constant("")
+    let currency = Binding.constant("USD")
 
     return ContentView(bitcoinBalance: bitcoinBalance,
                        bitcoinValue: bitcoinValue,
                        enteredBitcoinAmount: enteredBitcoinAmount,
+                       currency: currency,
                        fetchBitcoinPrice: {},
                        calculateYourBitcoinBalance: {})
 }
