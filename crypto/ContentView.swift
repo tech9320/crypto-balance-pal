@@ -8,6 +8,7 @@ struct ContentView: View {
     @Binding var bitcoinValue: String
     @Binding var enteredBitcoinAmount: String
     @Binding var currency: String
+    @Binding var cryptocurrency: String
     var fetchBitcoinPrice: () -> Void
     var calculateYourBitcoinBalance: () -> Void
 
@@ -26,7 +27,7 @@ struct ContentView: View {
                 
                 Text("CryptoBalance Pal - Your Virtual Crypto Companion")
 
-                Text("Welcome to CryptoBalance Pal, your one-stop solution for tracking your Bitcoin holdings in an immersive experience. Seamlessly manage your cryptocurrency portfolio with a user-friendly interface designed for the Apple Vision Pro.")
+                Text("Welcome to CryptoBalance Pal, your one-stop solution for tracking your Crypto holdings in an immersive experience. Seamlessly manage your cryptocurrency portfolio with a user-friendly interface designed for the Apple Vision Pro.")
                     .padding(.horizontal, 80)
                     .padding(.top, 20)
                     .multilineTextAlignment(.center)
@@ -40,10 +41,10 @@ struct ContentView: View {
             
             VStack {
                 
-                Text("Current Bitcoin Value:")
+                Text("Current \(cryptocurrency.capitalized) Value:")
                 Text("\(self.bitcoinValue) \(self.currency)")
                     
-                TextField("Enter Your Bitcoin Amount", text: $enteredBitcoinAmount)
+                TextField("Enter Your \(cryptocurrency.capitalized) Amount", text: $enteredBitcoinAmount)
                     .keyboardType(.decimalPad)
                     .frame(width: 250)
                     .textFieldStyle(.roundedBorder)
@@ -55,6 +56,26 @@ struct ContentView: View {
            
                 Text("Your Holdings: \(bitcoinBalance) \(currency)")
                     .padding(.top, 20)
+                
+                Menu {
+                    Button {
+                        self.cryptocurrency = "bitcoin"
+                        fetchBitcoinPrice()
+                    } label: {
+                        Text("Bitcoin")
+                        Text("BTC")
+                    }
+                    Button {
+                        self.cryptocurrency = "ethereum"
+                        fetchBitcoinPrice()
+                    } label: {
+                        Text("Ethereum")
+                        Text("ETH")
+                    }
+                } label: {
+                     Text("Change Cryptocurrency")
+                     Image(systemName: "arrow.down.circle")
+                }
                 
                 Menu {
                     Button {
@@ -103,11 +124,13 @@ struct ContentView: View {
     let bitcoinValue = Binding.constant("0.0")
     let enteredBitcoinAmount = Binding.constant("")
     let currency = Binding.constant("USD")
+    let cryptocurrency = Binding.constant("bitcoin")
 
     return ContentView(bitcoinBalance: bitcoinBalance,
                        bitcoinValue: bitcoinValue,
                        enteredBitcoinAmount: enteredBitcoinAmount,
                        currency: currency,
+                       cryptocurrency: cryptocurrency,
                        fetchBitcoinPrice: {},
                        calculateYourBitcoinBalance: {})
 }

@@ -7,20 +7,24 @@ struct cryptoApp: App {
     @State private var bitcoinValue = "0.0"
     @State private var enteredBitcoinAmount = ""
     @State private var currency = "USD"
-
+    @State private var cryptocurrency = "bitcoin"
     
     func fetchBitcoinPrice(){
         print("Fetching Bitcoin Price")
-        let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
+        let url = URL(string: "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd,eur,gbp")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("Error: \(error)")
             } else if let data = data {
                 let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let bpi = json["bpi"] as! [String: Any]
-                let usd = bpi[currency] as! [String: Any]
-                let rate = usd["rate"] as! String
-                bitcoinValue = rate
+                print(json)
+                let cryptoValues = json[cryptocurrency] as! [String: Any]
+                let value = cryptoValues[currency.lowercased()] as! Double
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                numberFormatter.groupingSeparator = ","
+                numberFormatter.decimalSeparator = "."
+                bitcoinValue = numberFormatter.string(from: NSNumber(value: value))!
                 calculateYourBitcoinBalance()
             }
         }
@@ -52,6 +56,7 @@ struct cryptoApp: App {
                 bitcoinValue: $bitcoinValue,
                 enteredBitcoinAmount: $enteredBitcoinAmount,
                 currency: $currency,
+                cryptocurrency: $cryptocurrency,
                 fetchBitcoinPrice: fetchBitcoinPrice,
                 calculateYourBitcoinBalance: calculateYourBitcoinBalance
             ).frame(minWidth: 1000, minHeight: 800)
@@ -63,6 +68,7 @@ struct cryptoApp: App {
                 bitcoinBalance: $bitcoinBalance,
                 bitcoinValue: $bitcoinValue,
                 currency: $currency,
+                cryptocurrency: $cryptocurrency,
                 fetchBitcoinPrice: fetchBitcoinPrice
             )
         }

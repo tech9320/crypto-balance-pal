@@ -14,12 +14,13 @@ struct ImmersiveView: View {
     @Binding var bitcoinBalance: String
     @Binding var bitcoinValue: String
     @Binding var currency: String
+    @Binding var cryptocurrency: String
     var fetchBitcoinPrice: () -> Void
 
     var body: some View {
         RealityView { content in
             dismissWindow(id: "StartingWindow")
-            self.ball = try! await Entity(named: "bitcoin", in: realityKitContentBundle)
+            self.ball = try! await Entity(named: cryptocurrency, in: realityKitContentBundle)
             ball.scale = [2, 2, 2]
             ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
             content.add(ball)
@@ -30,7 +31,7 @@ struct ImmersiveView: View {
            }
         }
 
-        Text("Your Bitcoin Balance: \(bitcoinBalance) \(currency)")
+        Text("Your \(cryptocurrency.capitalized) Balance: \(bitcoinBalance) \(currency)")
             .font(.system(size: 80))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -38,7 +39,7 @@ struct ImmersiveView: View {
             .multilineTextAlignment(.center)
             .offset(y: -100)
 
-        Text("Bitcoin Value: \(bitcoinValue) \(currency)")
+        Text("\(cryptocurrency.capitalized) Value: \(bitcoinValue) \(currency)")
             .font(.system(size: 50))
             .foregroundColor(.white)
             .fontWeight(.bold)
@@ -96,11 +97,13 @@ struct ImmersiveView: View {
     let bitcoinBalance = Binding.constant("0.0")
     let bitcoinValue = Binding.constant("0.0")
     let currency = Binding.constant("USD")
+    let cryptocurrency = Binding.constant("bitcoin")
 
     return ImmersiveView(
                     bitcoinBalance: bitcoinBalance,
                     bitcoinValue: bitcoinValue,
                     currency: currency,
+                    cryptocurrency: cryptocurrency,
                     fetchBitcoinPrice: {}
                    ).previewLayout(.sizeThatFits)
 }
