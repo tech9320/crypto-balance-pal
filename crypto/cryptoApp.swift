@@ -18,8 +18,8 @@ struct cryptoApp: App {
             } else if let data = data {
                 let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 let bpi = json["bpi"] as! [String: Any]
-                let usd = bpi[currency] as! [String: Any]
-                let rate = usd["rate"] as! String
+                let curr = bpi[currency] as! [String: Any]
+                let rate = curr["rate"] as! String
                 bitcoinValue = rate
                 calculateYourBitcoinBalance()
             }
