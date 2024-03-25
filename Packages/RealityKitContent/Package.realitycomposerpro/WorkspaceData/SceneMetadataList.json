@@ -23,6 +23,36 @@
       }
     ]
   },
+  "17099F11-C627-4E5E-8FC8-A05053B697F6" : {
+    "objectMetadataList" : [
+      [
+        "17099F11-C627-4E5E-8FC8-A05053B697F6",
+        "Root",
+        "EthMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "17099F11-C627-4E5E-8FC8-A05053B697F6",
+        "Root",
+        "Sphere"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "17099F11-C627-4E5E-8FC8-A05053B697F6",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "66168B71-AB05-424E-8B6C-D33D6E61B08F" : {
     "objectMetadataList" : [
       [
@@ -48,7 +78,8 @@
       },
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
-        "Root"
+        "Root",
+        "Sphere_Right"
       ],
       {
         "isExpanded" : true,
@@ -56,8 +87,7 @@
       },
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
-        "Root",
-        "Sphere_Right"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -69,8 +99,7 @@
     "objectMetadataList" : [
       [
         "CB766F92-EE55-4A63-9401-E7B8C009764D",
-        "Root",
-        "GridMaterial"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -78,7 +107,8 @@
       },
       [
         "CB766F92-EE55-4A63-9401-E7B8C009764D",
-        "Root"
+        "Root",
+        "GridMaterial"
       ],
       {
         "isExpanded" : true,
@@ -96,7 +126,24 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
+        "Eth_Matherial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
         "BitCoin_Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -107,14 +154,6 @@
         "Root",
         "GridMaterial",
         "GridMaterial"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root"
       ],
       {
         "isExpanded" : true,

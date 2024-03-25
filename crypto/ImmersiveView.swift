@@ -19,7 +19,7 @@ struct ImmersiveView: View {
     var body: some View {
         RealityView { content in
             dismissWindow(id: "StartingWindow")
-            self.ball = try! await Entity(named: "Scene", in: realityKitContentBundle)
+            self.ball = try! await Entity(named: "bitcoin", in: realityKitContentBundle)
             ball.scale = [2, 2, 2]
             ball.transform.rotation = simd_quatf(angle: .pi / 4, axis: [0, 1, 0]);
             content.add(ball)
